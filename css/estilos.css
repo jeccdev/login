@@ -113,6 +113,16 @@
       transition: background var(--duracion) ease, border-color var(--duracion) ease;
     }
 
+    .escena-login {
+      width: min(100%, 900px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(1rem, 4vw, 2.8rem);
+      position: relative;
+      z-index: 1;
+    }
+
     .cabecera-login {
       display: flex;
       justify-content: space-between;
@@ -133,6 +143,160 @@
       margin: 0.35rem 0 0;
       color: var(--texto-secundario);
       font-size: 0.95rem;
+    }
+
+    .companero-mascota {
+      z-index: 1;
+      width: clamp(220px, 30vw, 340px);
+      display: grid;
+      justify-items: start;
+      align-content: center;
+      gap: 0.6rem;
+      pointer-events: none;
+    }
+
+    .mensaje-mascota {
+      margin: 0;
+      padding: 0.5rem 0.8rem;
+      border-radius: var(--radio-md);
+      border: 1px solid var(--borde-campo);
+      background: color-mix(in srgb, var(--fondo-campo) 88%, transparent);
+      color: var(--texto-secundario);
+      font-size: 0.8rem;
+      line-height: 1.3;
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+      width: clamp(210px, 30vw, 330px);
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      text-wrap: pretty;
+    }
+
+    .trayectoria-mascota {
+      width: 100%;
+      display: grid;
+      justify-items: center;
+      animation: mover-horizontal-mascota 4.6s ease-in-out infinite;
+    }
+
+    .mascota-login {
+      position: relative;
+      width: 92px;
+      height: 100px;
+      display: grid;
+      place-items: center;
+      animation: flotar-mascota 4.2s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    .sombra-mascota {
+      position: absolute;
+      bottom: 3px;
+      width: 54px;
+      height: 10px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--texto-principal) 22%, transparent);
+      filter: blur(2px);
+      opacity: 0.35;
+      animation: sombra-mascota 4.2s ease-in-out infinite;
+    }
+
+    .cara-mascota {
+      --desplazamiento-pupila: 0px;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 1px solid var(--borde-campo);
+      background: linear-gradient(145deg, color-mix(in srgb, var(--fondo-campo) 88%, #ffffff 12%), var(--fondo-campo));
+      box-shadow: 0 14px 24px rgba(15, 23, 42, 0.13);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr auto;
+      align-items: center;
+      justify-items: center;
+      padding: 0.95rem 0.85rem 0.72rem;
+      transition: transform var(--duracion) ease;
+      animation: respirar-mascota 3.5s ease-in-out infinite;
+    }
+
+    .ojo-mascota {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1.5px solid var(--texto-principal);
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--duracion) ease;
+    }
+
+    .ojo-mascota::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: var(--fondo-campo);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform var(--duracion) ease;
+    }
+
+    .pupila-mascota {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--texto-principal);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(calc(-50% + var(--desplazamiento-pupila)), -50%);
+      transition: transform 180ms ease;
+    }
+
+    .boca-mascota {
+      grid-column: 1 / -1;
+      width: 24px;
+      height: 11px;
+      border: 2px solid var(--texto-principal);
+      border-top: 0;
+      border-radius: 0 0 20px 20px;
+      transition: all var(--duracion) ease;
+    }
+
+    .mascota-login[data-humor="atento"] .cara-mascota {
+      transform: translateY(-2px);
+    }
+
+    .mascota-login[data-humor="curioso"] .cara-mascota {
+      transform: rotate(-3deg) translateY(-1px);
+    }
+
+    .mascota-login[data-humor="guino"] .ojo-izquierdo::after {
+      transform: scaleY(1);
+    }
+
+    .mascota-login[data-humor="guino"] .boca-mascota {
+      width: 27px;
+      border-radius: 0 0 20px 8px;
+    }
+
+    .mascota-login[data-humor="sorprendido"] .ojo-mascota {
+      transform: scale(1.12);
+    }
+
+    .mascota-login[data-humor="sorprendido"] .boca-mascota {
+      width: 10px;
+      height: 10px;
+      border: 2px solid var(--texto-principal);
+      border-radius: 50%;
+    }
+
+    .mascota-login[data-humor="error"] .boca-mascota {
+      transform: rotate(180deg) translateY(-2px);
+    }
+
+    .mascota-login[data-humor="celebra"] .cara-mascota {
+      animation: rebote-mascota 420ms ease;
     }
 
     /* Interruptor visible para alternar tema */
@@ -322,6 +486,56 @@
       }
     }
 
+    @keyframes flotar-mascota {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    @keyframes mover-horizontal-mascota {
+      0%, 100% {
+        transform: translateX(-12px);
+      }
+      50% {
+        transform: translateX(12px);
+      }
+    }
+
+    @keyframes respirar-mascota {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.02);
+      }
+    }
+
+    @keyframes sombra-mascota {
+      0%, 100% {
+        transform: scaleX(1);
+        opacity: 0.35;
+      }
+      50% {
+        transform: scaleX(0.9);
+        opacity: 0.24;
+      }
+    }
+
+    @keyframes rebote-mascota {
+      0% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-6px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
     /* Animación de entrada escalonada para generar ritmo visual */
     .animacion-entrada {
       opacity: 0;
@@ -346,7 +560,7 @@
     .notificacion {
       position: fixed;
       right: 1rem;
-      bottom: 1rem;
+      top: 1rem;
       padding: 0.9rem 1rem;
       border-radius: var(--radio-md);
       background: var(--texto-principal);
@@ -366,6 +580,22 @@
       transform: translateY(0);
     }
 
+    @media (max-width: 860px) {
+      .escena-login {
+        flex-direction: column;
+        gap: 0.9rem;
+      }
+
+      .companero-mascota {
+        width: min(100%, 330px);
+        justify-items: center;
+      }
+
+      .mensaje-mascota {
+        width: min(100%, 330px);
+      }
+    }
+
     @media (max-width: 520px) {
       .contenedor-login {
         padding: 1.4rem 1rem 1.2rem;
@@ -373,6 +603,26 @@
 
       .cabecera-login {
         flex-direction: column;
+      }
+
+      .companero-mascota {
+        width: min(100%, 280px);
+      }
+
+      .mensaje-mascota {
+        font-size: 0.74rem;
+        padding: 0.38rem 0.58rem;
+        width: min(100%, 280px);
+      }
+
+      .mascota-login {
+        width: 78px;
+        height: 84px;
+      }
+
+      .cara-mascota {
+        width: 62px;
+        height: 62px;
       }
 
       .boton-tema {

@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <main aria-label="Pantalla de inicio de sesión">
+  <main class="escena-login" aria-label="Pantalla de inicio de sesión">
     <section class="contenedor-login" aria-labelledby="tituloLogin">
       <header class="cabecera-login animacion-entrada retardo-1">
         <div>
@@ -32,14 +32,14 @@
       </header>
 
       <form id="formularioLogin" class="formulario-login" novalidate>
-        <div class="grupo-campo animacion-entrada retardo-2">
+        <div class="grupo-campo animacion-entrada retardo-3">
           <label for="campoCorreo" class="etiqueta-campo">Correo electrónico</label>
           <input type="email" id="campoCorreo" name="correo" class="campo-entrada" placeholder="tu@empresa.com"
             autocomplete="email" aria-label="Correo electrónico" aria-describedby="mensajeCorreo" required />
           <p id="mensajeCorreo" class="mensaje-campo" aria-live="polite"></p>
         </div>
 
-        <div class="grupo-campo animacion-entrada retardo-3">
+        <div class="grupo-campo animacion-entrada retardo-4">
           <label for="campoContrasena" class="etiqueta-campo">Contraseña</label>
           <div class="envoltura-contrasena">
             <input type="password" id="campoContrasena" name="contrasena" class="campo-entrada"
@@ -53,7 +53,7 @@
           <p id="mensajeContrasena" class="mensaje-campo" aria-live="polite"></p>
         </div>
 
-        <div class="fila-botones animacion-entrada retardo-4">
+        <div class="fila-botones animacion-entrada retardo-5">
           <button type="submit" id="botonEnviar" class="boton-accion" aria-label="Iniciar sesión">
             <span class="cargando" aria-hidden="true"></span>
             <span class="texto-boton">Iniciar sesión</span>
@@ -74,6 +74,24 @@
         </div>
       </form>
     </section>
+
+    <aside id="companeroMascota" class="companero-mascota animacion-entrada retardo-2" aria-hidden="true">
+      <p id="mensajeMascota" class="mensaje-mascota">Listo para iniciar sesión</p>
+      <div class="trayectoria-mascota">
+        <div id="mascotaLogin" class="mascota-login" data-humor="reposo">
+          <span class="sombra-mascota"></span>
+          <div id="caraMascota" class="cara-mascota">
+            <span class="ojo-mascota ojo-izquierdo">
+              <span class="pupila-mascota"></span>
+            </span>
+            <span class="ojo-mascota ojo-derecho">
+              <span class="pupila-mascota"></span>
+            </span>
+            <span class="boca-mascota"></span>
+          </div>
+        </div>
+      </div>
+    </aside>
   </main>
 
   <div id="notificacionFlotante" class="notificacion" role="status" aria-live="polite"></div>
