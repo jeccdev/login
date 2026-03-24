@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Página de inicio de sesión moderna, accesible y sin dependencias externas." />
+  <title>Iniciar sesión | Portal</title>
+
+  <!-- Tipografía elegante importada desde Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/estilos.css" />
+</head>
+
+<body>
+  <main aria-label="Pantalla de inicio de sesión">
+    <section class="contenedor-login" aria-labelledby="tituloLogin">
+      <header class="cabecera-login animacion-entrada retardo-1">
+        <div>
+          <h1 class="titulo-login" id="tituloLogin">Bienvenido</h1>
+        </div>
+        <button type="button" id="botonTema" class="boton-tema" aria-label="Cambiar entre modo claro y oscuro"
+          aria-pressed="false">
+          <span id="iconoTema" aria-hidden="true">🌙</span>
+          <span id="textoTema">Oscuro</span>
+        </button>
+      </header>
+
+      <form id="formularioLogin" class="formulario-login" novalidate>
+        <div class="grupo-campo animacion-entrada retardo-2">
+          <label for="campoCorreo" class="etiqueta-campo">Correo electrónico</label>
+          <input type="email" id="campoCorreo" name="correo" class="campo-entrada" placeholder="tu@empresa.com"
+            autocomplete="email" aria-label="Correo electrónico" aria-describedby="mensajeCorreo" required />
+          <p id="mensajeCorreo" class="mensaje-campo" aria-live="polite"></p>
+        </div>
+
+        <div class="grupo-campo animacion-entrada retardo-3">
+          <label for="campoContrasena" class="etiqueta-campo">Contraseña</label>
+          <div class="envoltura-contrasena">
+            <input type="password" id="campoContrasena" name="contrasena" class="campo-entrada"
+              placeholder="Mínimo 6 caracteres" autocomplete="current-password" aria-label="Contraseña"
+              aria-describedby="mensajeContrasena" required minlength="6" />
+            <button type="button" id="botonVisorContrasena" class="boton-visor" aria-label="Mostrar contraseña"
+              aria-pressed="false">
+              Mostrar
+            </button>
+          </div>
+          <p id="mensajeContrasena" class="mensaje-campo" aria-live="polite"></p>
+        </div>
+
+        <div class="fila-botones animacion-entrada retardo-4">
+          <button type="submit" id="botonEnviar" class="boton-accion" aria-label="Iniciar sesión">
+            <span class="cargando" aria-hidden="true"></span>
+            <span class="texto-boton">Iniciar sesión</span>
+          </button>
+          <button type="button" class="boton-google" aria-label="Continuar con Google">
+            <svg class="icono-google" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+              <path fill="#FFC107"
+                d="M43.611 20.083H42V20H24v8h11.303C33.655 32.657 29.198 36 24 36c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.27 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" />
+              <path fill="#FF3D00"
+                d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.27 4 24 4c-7.682 0-14.318 4.337-17.694 10.691z" />
+              <path fill="#4CAF50"
+                d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.145 35.091 26.715 36 24 36c-5.181 0-9.626-3.319-11.283-7.946l-6.522 5.025C9.54 39.556 16.227 44 24 44z" />
+              <path fill="#1976D2"
+                d="M43.611 20.083H42V20H24v8h11.303c-1.054 3.307-3.382 5.966-6.084 7.57h.003l6.19 5.238C35.021 41.073 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" />
+            </svg>
+            <span>Continuar con Google</span>
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <div id="notificacionFlotante" class="notificacion" role="status" aria-live="polite"></div>
+
+  <script src="./js/validaciones.js" defer></script>
+</body>
+
+</html>
