@@ -5,6 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Página de inicio de sesión moderna, accesible y sin dependencias externas." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" />
+  <meta http-equiv="Referrer-Policy" content="no-referrer" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
   <title>Iniciar sesión | Portal</title>
 
   <!-- Tipografía elegante importada desde Google Fonts -->
@@ -14,7 +18,8 @@
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
     rel="stylesheet" />
 
-  <link rel="stylesheet" href="./css/estilos.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/login.css" />
 </head>
 
 <body>
@@ -35,7 +40,8 @@
         <div class="grupo-campo animacion-entrada retardo-3">
           <label for="campoCorreo" class="etiqueta-campo">Correo electrónico</label>
           <input type="email" id="campoCorreo" name="correo" class="campo-entrada" placeholder="tu@empresa.com"
-            autocomplete="email" aria-label="Correo electrónico" aria-describedby="mensajeCorreo" required />
+            autocomplete="username" inputmode="email" maxlength="254" autocapitalize="off" spellcheck="false"
+            aria-label="Correo electrónico" aria-describedby="mensajeCorreo" required />
           <p id="mensajeCorreo" class="mensaje-campo" aria-live="polite"></p>
         </div>
 
@@ -44,7 +50,7 @@
           <div class="envoltura-contrasena">
             <input type="password" id="campoContrasena" name="contrasena" class="campo-entrada"
               placeholder="Mínimo 6 caracteres" autocomplete="current-password" aria-label="Contraseña"
-              aria-describedby="mensajeContrasena" required minlength="6" />
+              aria-describedby="mensajeContrasena" required minlength="6" maxlength="128" />
             <button type="button" id="botonVisorContrasena" class="boton-visor" aria-label="Mostrar contraseña"
               aria-pressed="false">
               Mostrar
@@ -75,28 +81,12 @@
       </form>
     </section>
 
-    <aside id="companeroMascota" class="companero-mascota animacion-entrada retardo-2" aria-hidden="true">
-      <p id="mensajeMascota" class="mensaje-mascota">Listo para iniciar sesión</p>
-      <div class="trayectoria-mascota">
-        <div id="mascotaLogin" class="mascota-login" data-humor="reposo">
-          <span class="sombra-mascota"></span>
-          <div id="caraMascota" class="cara-mascota">
-            <span class="ojo-mascota ojo-izquierdo">
-              <span class="pupila-mascota"></span>
-            </span>
-            <span class="ojo-mascota ojo-derecho">
-              <span class="pupila-mascota"></span>
-            </span>
-            <span class="boca-mascota"></span>
-          </div>
-        </div>
-      </div>
-    </aside>
   </main>
 
   <div id="notificacionFlotante" class="notificacion" role="status" aria-live="polite"></div>
 
-  <script src="./js/validaciones.js" defer></script>
+  <script src="./js/login.js" defer></script>
 </body>
 
 </html>
+

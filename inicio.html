@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Página de inicio posterior al login." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" />
+  <meta http-equiv="Referrer-Policy" content="no-referrer" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+  <title>Inicio | Portal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/inicio.css" />
+</head>
+<body>
+  <main class="escena-login" aria-label="Pantalla de inicio de la aplicación">
+    <section class="contenedor-inicio animacion-entrada retardo-1" aria-labelledby="tituloInicio">
+      <header class="encabezado-inicio">
+        <div>
+          <h1 class="titulo-inicio" id="tituloInicio">Inicio</h1>
+          <p class="texto-sesion" id="textoSesion">Sesión activa.</p>
+        </div>
+
+        <div class="acciones-inicio">
+          <button type="button" id="botonTema" class="boton-tema" aria-label="Cambiar entre modo claro y oscuro" aria-pressed="false">
+            <span id="iconoTema" aria-hidden="true">🌙</span>
+            <span id="textoTema">Oscuro</span>
+          </button>
+          <button type="button" id="botonCerrarSesion" class="boton-secundario" aria-label="Cerrar sesión">Cerrar sesión</button>
+        </div>
+      </header>
+
+      <section class="paneles-inicio" aria-label="Resumen de módulos">
+        <article class="tarjeta-inicio animacion-entrada retardo-2">
+          <h2 class="tarjeta-titulo">Actividad</h2>
+          <p class="tarjeta-texto">Aquí puedes ver eventos recientes y acciones de tu cuenta.</p>
+        </article>
+
+        <article class="tarjeta-inicio animacion-entrada retardo-3">
+          <h2 class="tarjeta-titulo">Seguridad</h2>
+          <p class="tarjeta-texto">Revisa accesos, sesiones activas y configuraciones de protección.</p>
+        </article>
+
+        <article class="tarjeta-inicio animacion-entrada retardo-4">
+          <h2 class="tarjeta-titulo">Configuración</h2>
+          <p class="tarjeta-texto">Administra preferencias y personaliza la experiencia del portal.</p>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script src="./js/inicio.js" defer></script>
+</body>
+</html>
+
+

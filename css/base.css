@@ -1,0 +1,170 @@
+/* ========================================================================== 
+   Base.css
+   Estilos globales compartidos entre login e inicio.
+   ========================================================================== */
+
+:root {
+  --fuente-principal: "Manrope", sans-serif;
+  --fuente-titulo: "Playfair Display", serif;
+
+  --fondo-app: #dbe1e8;
+  --fondo-gradiente: radial-gradient(circle at 15% 20%, #e9edf2 0%, #dbe3ec 38%, #cfd9e4 100%);
+  --fondo-tarjeta: rgba(255, 255, 255, 0.78);
+  --borde-tarjeta: rgba(255, 255, 255, 0.55);
+
+  --texto-principal: #1f2933;
+  --texto-secundario: #52606d;
+  --texto-etiqueta: #334e68;
+
+  --color-acento: #0f6cbf;
+  --color-acento-hover: #0a58a2;
+  --color-exito: #0f8b6f;
+  --color-error: #c53030;
+
+  --borde-campo: #cbd2d9;
+  --foco-campo: #7cc4ff;
+  --fondo-campo: #ffffff;
+
+  --sombra-tarjeta: 0 24px 60px rgba(15, 23, 42, 0.16);
+  --sombra-boton: 0 10px 24px rgba(15, 108, 191, 0.26);
+
+  --duracion: 280ms;
+  --radio-lg: 22px;
+  --radio-md: 12px;
+  --radio-sm: 10px;
+}
+
+html[data-tema="oscuro"] {
+  --fondo-app: #09111d;
+  --fondo-gradiente: radial-gradient(circle at 15% 20%, #162338 0%, #101b2d 35%, #0a1323 100%);
+  --fondo-tarjeta: rgba(15, 27, 45, 0.76);
+  --borde-tarjeta: rgba(138, 163, 194, 0.22);
+
+  --texto-principal: #e6edf5;
+  --texto-secundario: #b6c4d6;
+  --texto-etiqueta: #d5e1ef;
+
+  --color-acento: #4ea6ff;
+  --color-acento-hover: #79bdff;
+  --color-exito: #35cba7;
+  --color-error: #ff8b8b;
+
+  --borde-campo: #3c4f67;
+  --foco-campo: #89c7ff;
+  --fondo-campo: #121f33;
+
+  --sombra-tarjeta: 0 30px 70px rgba(2, 8, 20, 0.6);
+  --sombra-boton: 0 10px 25px rgba(78, 166, 255, 0.33);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--fuente-principal);
+  color: var(--texto-principal);
+  background: var(--fondo-gradiente);
+  background-color: var(--fondo-app);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  transition: background-color var(--duracion) ease, color var(--duracion) ease;
+  overflow: hidden;
+  position: relative;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(4px);
+  transition: opacity var(--duracion) ease;
+}
+
+body::before {
+  top: -140px;
+  left: -120px;
+  background: radial-gradient(circle, rgba(15, 108, 191, 0.22) 0%, rgba(15, 108, 191, 0) 70%);
+}
+
+body::after {
+  right: -120px;
+  bottom: -140px;
+  background: radial-gradient(circle, rgba(9, 148, 140, 0.18) 0%, rgba(9, 148, 140, 0) 70%);
+}
+
+/* Contenedor principal reutilizable */
+.escena-login {
+  width: min(100%, 900px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 2.8rem);
+  position: relative;
+  z-index: 1;
+}
+
+/* Botón global para alternar tema */
+.boton-tema {
+  border: 1px solid var(--borde-campo);
+  background: var(--fondo-campo);
+  color: var(--texto-principal);
+  border-radius: 999px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  transition: border-color var(--duracion) ease, transform var(--duracion) ease, background-color var(--duracion) ease;
+}
+
+.boton-tema:hover {
+  transform: translateY(-1px);
+  border-color: var(--foco-campo);
+}
+
+/* Animaciones de entrada */
+.animacion-entrada {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: aparecer 560ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.retardo-1 { animation-delay: 80ms; }
+.retardo-2 { animation-delay: 170ms; }
+.retardo-3 { animation-delay: 260ms; }
+.retardo-4 { animation-delay: 350ms; }
+.retardo-5 { animation-delay: 440ms; }
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 860px) {
+  .escena-login {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

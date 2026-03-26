@@ -1,0 +1,110 @@
+/* ========================================================================== 
+   Inicio.css
+   Estilos exclusivos de la pantalla posterior al login.
+   ========================================================================== */
+
+/* Contenedor principal del panel de inicio */
+.contenedor-inicio {
+  width: min(100%, 860px);
+  border-radius: var(--radio-lg);
+  border: 1px solid var(--borde-tarjeta);
+  background: var(--fondo-tarjeta);
+  box-shadow: var(--sombra-tarjeta);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 1.35rem;
+  display: grid;
+  gap: 1rem;
+}
+
+/* Encabezado con acciones principales */
+.encabezado-inicio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.titulo-inicio {
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.5rem, 2.5vw, 1.95rem);
+  line-height: 1.2;
+}
+
+.texto-sesion {
+  margin: 0.35rem 0 0;
+  color: var(--texto-secundario);
+  font-size: 0.95rem;
+}
+
+.acciones-inicio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Tarjetas de resumen de módulos */
+.paneles-inicio {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.tarjeta-inicio {
+  border: 1px solid var(--borde-campo);
+  border-radius: var(--radio-md);
+  background: color-mix(in srgb, var(--fondo-campo) 88%, transparent);
+  padding: 0.95rem;
+  min-height: 122px;
+}
+
+.tarjeta-titulo {
+  margin: 0 0 0.45rem;
+  font-size: 0.95rem;
+  color: var(--texto-principal);
+  font-weight: 700;
+}
+
+.tarjeta-texto {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--texto-secundario);
+  line-height: 1.4;
+}
+
+/* Botón de salida de sesión */
+.boton-secundario {
+  min-height: 42px;
+  padding: 0.62rem 0.9rem;
+  border-radius: var(--radio-sm);
+  border: 1px solid var(--borde-campo);
+  background: var(--fondo-campo);
+  color: var(--texto-principal);
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all var(--duracion) ease;
+}
+
+.boton-secundario:hover {
+  border-color: var(--foco-campo);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 860px) {
+  .paneles-inicio {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .encabezado-inicio {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .acciones-inicio {
+    width: 100%;
+  }
+}
