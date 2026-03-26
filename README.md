@@ -1,5 +1,7 @@
 ## Login
 
+![Login](./assets/img/login.png)
+
 ## Estructura
 
 ```text
@@ -22,3 +24,7 @@ login/
 - Accesibilidad semántica y atributos ARIA.
 - Protección básica de sesión en cliente y bloqueo progresivo por intentos fallidos.
 - Comentarios de sección en archivos donde agregan contexto técnico.
+
+## IA
+Proyecto creado con CODEX.
+Modelo usado: GPT-5.3-codex.
